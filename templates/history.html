@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Symbol</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Price</th>
+        <th scope="col">Type of transaction</th>
+        <th scope="col">Date/Time</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for transaction in transactions %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{ transaction.stock_symbol }}</td>
+                <td>{{ transaction.stock_count }}</td>
+                <td>{{ transaction.stock_price | usd }}</td>
+                <td>{{ transaction.transaction_type }}</td>
+                <td>{{ transaction.transaction_time.strftime("%m/%d/%Y %H:%M:%S") }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

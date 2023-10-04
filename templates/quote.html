@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <form>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="symbol" placeholder="Stock’s symbol" type="text">
+        </div>
+        <button id="get-stock-price" class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+    <div id="stock-info"></div> 
+
+    <div style="width: 50%; margin:0 auto;">
+        <canvas id="line-time"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.1.0/dist/chartjs-adapter-luxon.min.js"></script>
+
+    <script src="/static/quote.js"></script>
+{% endblock %}

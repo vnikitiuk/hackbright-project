@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Name</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Price</th>
+        <th scope="col">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for purchase in purchases.values() %}
+            <tr>
+              <td>{{ purchase.symbol }}</td>
+              <td>{{ purchase.name }}</td>
+              <td>{{ purchase.shares }}</td>
+              <td>{{ purchase.price | usd }}</td>
+              <td>{{ purchase.total | usd }}</td>
+            </tr>
+        {% endfor %}
+
+      <tr class="no-bottom-border">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>Cash</b></td>
+        <td>{{ user_cash | usd }}</td>
+      </tr>
+
+      <tr class="no-bottom-border">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b>TOTAL</b></td>
+        <td>{{ total_sum | usd }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+{% endblock %}
