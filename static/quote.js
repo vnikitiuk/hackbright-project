@@ -10,7 +10,8 @@ function showStockPrice(event) {
     fetch(`/quote.json?symbol=${symbol}`)
         .then((response) => response.json())
         .then((jsonData) => {
-            document.querySelector('#stock-info').innerHTML = [jsonData.symbol, jsonData.price];
+            document.querySelector('#stock-price').innerHTML = [jsonData.price];
+            document.getElementById('stock-info').style.display = 'block';
 
             const chart_info = jsonData.chart_info.map((dailyPrice) => ({
                 x: dailyPrice.time,
@@ -28,6 +29,8 @@ function showStockPrice(event) {
                       {
                         label: jsonData.name,
                         data: chart_info, // equivalent to data: data
+                        borderColor: '#0d6efd',
+                        backgroundColor: '#0d51fd',
                       },
                     ],
                   },

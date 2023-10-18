@@ -29,8 +29,3 @@ def create_transaction_info(user_id, stock_symbol, stock_count, stock_price, tra
     )
 
     return transaction
-
-
-if __name__ == '__main__':
-    from server import app
-    connect_to_db(app)
